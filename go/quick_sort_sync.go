@@ -1,14 +1,14 @@
 package main
 
-import "math/rand"
+import "intslice"
 
-func QuickSortSync(tab []int) []int {
+func QuickSortSync(tab intslice.IntSlice) intslice.IntSlice {
 	if len(tab) <= 1 {
 		return tab
 	}
 	m := len(tab) / 2
 	p := (tab)[m]
-	tab1, tab2 := make([]int, 0), make([]int, 0)
+	tab1, tab2 := make(intslice.IntSlice, 0), make(intslice.IntSlice, 0)
 	for i, t := range tab {
 		if i == m {
 			continue
@@ -23,6 +23,6 @@ func QuickSortSync(tab []int) []int {
 }
 
 func main() {
-	unsorted := rand.Perm(1000)
+	unsorted := intslice.Perm(1000)
 	QuickSortSync(unsorted)
 }

@@ -1,26 +1,22 @@
 package main
 
-import "math/rand"
+import "intslice"
 
-func swap(tab []int, i, j int) {
-	tab[i], tab[j] = tab[j], tab[i]
-}
-
-func partition(tab []int) (i int) {
+func partition(tab intslice.IntSlice) (i int) {
 	l := len(tab)
 	mid, last := l/2, l-1
-	swap(tab, mid, last)
+	tab.Swap(mid, last)
 	for i, j := 0, 0; j < last; j++ {
 		if tab[j] <= tab[last] {
-			swap(tab, i, j)
+			tab.Swap(i, j)
 			i++
 		}
 	}
-	swap(tab, i, last)
+	tab.Swap(i, last)
 	return
 }
 
-func QuickSort2Sync(tab []int) {
+func QuickSort2Sync(tab intslice.IntSlice) {
 	if len(tab) > 1 {
 		p := partition(tab)
 		QuickSort2Sync(tab[:p])
@@ -29,6 +25,6 @@ func QuickSort2Sync(tab []int) {
 }
 
 func main() {
-	unsorted := rand.Perm(1000)
+	unsorted := intslice.Perm(1000)
 	QuickSort2Sync(unsorted)
 }

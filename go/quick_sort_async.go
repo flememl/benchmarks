@@ -1,16 +1,16 @@
 package main
 
-import "math/rand"
+import "intslice"
 
-func QuickSortAsync(tab []int, c chan []int) {
+func QuickSortAsync(tab intslice.IntSlice, c chan intslice.IntSlice) {
 	if len(tab) <= 1 {
 		c <- tab
 		return
 	}
 	m := len(tab) / 2
 	p := tab[m]
-	tab1, tab2 := make([]int, 0), make([]int, 0)
-	c1, c2 := make(chan []int), make(chan []int)
+	tab1, tab2 := make(intslice.IntSlice, 0), make(intslice.IntSlice, 0)
+	c1, c2 := make(chan intslice.IntSlice), make(chan intslice.IntSlice)
 	for i, t := range tab {
 		if i == m {
 			continue
@@ -28,7 +28,7 @@ func QuickSortAsync(tab []int, c chan []int) {
 }
 
 func main() {
-	unsorted, c := rand.Perm(1000), make(chan []int)
+	unsorted, c := intslice.Perm(1000), make(chan intslice.IntSlice)
 	go QuickSortAsync(unsorted, c)
 	<-c
 }

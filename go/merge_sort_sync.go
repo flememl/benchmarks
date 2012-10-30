@@ -1,30 +1,25 @@
 package main
 
-import "math/rand"
+import "intslice"
 
-func pop(t *[]int) (x int) {
-	x, *t = (*t)[0], (*t)[1:]
-	return
-}
-
-func mergeTables(tab1, tab2 []int) (tab []int) {
+func mergeTables(tab1, tab2 intslice.IntSlice) (tab intslice.IntSlice) {
 	for len(tab1) > 0 || len(tab2) > 0 {
 		if len(tab1) > 0 && len(tab2) > 0 {
 			if tab1[0] <= tab2[0] {
-				tab = append(tab, pop(&tab1))
+				tab = append(tab, tab1.Pop())
 			} else {
-				tab = append(tab, pop(&tab2))
+				tab = append(tab, tab2.Pop())
 			}
 		} else if len(tab1) > 0 {
-			tab = append(tab, pop(&tab1))
+			tab = append(tab, tab1.Pop())
 		} else if len(tab2) > 0 {
-			tab = append(tab, pop(&tab2))
+			tab = append(tab, tab2.Pop())
 		}
 	}
 	return
 }
 
-func MergeSortSync(tab []int) []int {
+func MergeSortSync(tab intslice.IntSlice) intslice.IntSlice {
 	if l := len(tab); l > 1 {
 		m := l / 2
 		return mergeTables(MergeSortSync(tab[:m]), MergeSortSync(tab[m:]))
@@ -33,6 +28,6 @@ func MergeSortSync(tab []int) []int {
 }
 
 func main() {
-	unsorted := rand.Perm(1000)
+	unsorted := intslice.Perm(1000)
 	MergeSortSync(unsorted)
 }
