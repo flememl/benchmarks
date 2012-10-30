@@ -13,7 +13,7 @@ profiling: run `python -m cProfile xxx.py` (more info can be found on http://doc
 go
 --
 
-sorting algorithms: quick sort & quick sort with in-place replacement, both synchronous and asynchronous (mostly to play with goroutines and channels)
+sorting algorithms: merge sort, quick sort & quick sort with in-place replacement, both synchronous and asynchronous (mostly to play with goroutines and channels)
 
 profiling: not tested yet (more info can be found on http://blog.golang.org/2011/06/profiling-go-programs.html)
 
