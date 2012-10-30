@@ -6,19 +6,18 @@ func swap(tab []int, i, j int) {
 	tab[i], tab[j] = tab[j], tab[i]
 }
 
-func partition(tab []int) int {
+func partition(tab []int) (i int) {
 	l := len(tab)
 	mid, last := l/2, l-1
 	swap(tab, mid, last)
-	i := 0
-	for j := 0; j < last; j++ {
+	for i, j := 0, 0; j < last; j++ {
 		if tab[j] <= tab[last] {
 			swap(tab, i, j)
 			i++
 		}
 	}
 	swap(tab, i, last)
-	return i
+	return
 }
 
 func QuickSort2Sync(tab []int) {

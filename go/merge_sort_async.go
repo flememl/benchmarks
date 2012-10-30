@@ -4,11 +4,10 @@ import "math/rand"
 
 func pop(t *[]int) (x int) {
 	x, *t = (*t)[0], (*t)[1:]
-	return x
+	return
 }
 
-func mergeTables(tab1, tab2 []int) []int {
-	tab := []int{}
+func mergeTables(tab1, tab2 []int) (tab []int) {
 	for len(tab1) > 0 || len(tab2) > 0 {
 		if len(tab1) > 0 && len(tab2) > 0 {
 			if tab1[0] <= tab2[0] {
@@ -22,7 +21,7 @@ func mergeTables(tab1, tab2 []int) []int {
 			tab = append(tab, pop(&tab2))
 		}
 	}
-	return tab
+	return
 }
 
 func MergeSortAsync(tab []int, c chan []int) {
@@ -37,7 +36,7 @@ func MergeSortAsync(tab []int, c chan []int) {
 }
 
 func main() {
-	unsorted, c := rand.Perm(10), make(chan []int)
+	unsorted, c := rand.Perm(1000), make(chan []int)
 	go MergeSortAsync(unsorted, c)
 	<-c
 }

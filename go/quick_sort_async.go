@@ -28,8 +28,7 @@ func QuickSortAsync(tab []int, c chan []int) {
 }
 
 func main() {
-	unsorted := rand.Perm(1000)
-	c := make(chan []int)
+	unsorted, c := rand.Perm(1000), make(chan []int)
 	go QuickSortAsync(unsorted, c)
 	<-c
 }
