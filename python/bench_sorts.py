@@ -7,6 +7,9 @@ from merge_sort import merge_sort
 from quick_sort import quick_sort
 from quick_sort2 import quick_sort2
 
+from utils import timing
+
+@timing
 def bench_sort(tab, func):
     return func(tab)
 
