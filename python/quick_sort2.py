@@ -1,6 +1,3 @@
-#!/usr/bin/python
-from native_sort import unsorted
-
 def _swap(tab, i1, i2):
     tab[i1], tab[i2] = tab[i2], tab[i1]
 
@@ -21,5 +18,3 @@ def quick_sort2(tab):
         return tab
     s = _partition(tab, 0, l-1, l / 2)
     return quick_sort2(tab[:s]) + [tab[s]] + quick_sort2(tab[s+1:])
-
-quick_sort2(unsorted)

@@ -1,6 +1,3 @@
-#!/usr/bin/python
-from native_sort import unsorted
-
 def _swap(tab, i, j):
     tab[i], tab[j] = tab[j], tab[i]
 
@@ -34,5 +31,3 @@ def heap_sort(tab):
         end -= 1
         _sift_down(tab2, 0, end)
     return tab2
-
-heap_sort(unsorted)

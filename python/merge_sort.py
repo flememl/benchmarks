@@ -1,6 +1,3 @@
-#!/usr/bin/python
-from native_sort import unsorted
-
 def _merge_tables(tab1, tab2):
     tab = []
     while len(tab1) or len(tab2):
@@ -21,5 +18,3 @@ def merge_sort(tab):
         return tab
     m = l / 2
     return _merge_tables(merge_sort(tab[:m]), merge_sort(tab[m:]))
-
-merge_sort(unsorted)

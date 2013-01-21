@@ -1,4 +1,4 @@
-package main
+package sorting
 
 import "intslice"
 
@@ -20,9 +20,4 @@ func QuickSortSync(tab intslice.IntSlice) intslice.IntSlice {
 		}
 	}
 	return append(append(QuickSortSync(tab1), p), QuickSortSync(tab2)...)
-}
-
-func main() {
-	unsorted := intslice.Perm(1000)
-	QuickSortSync(unsorted)
 }

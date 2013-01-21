@@ -1,0 +1,27 @@
+#!/usr/bin/python
+import sys
+import random
+
+from heap_sort import heap_sort
+from merge_sort import merge_sort
+from quick_sort import quick_sort
+from quick_sort2 import quick_sort2
+
+from utils import timing
+
+unsorted = [x for x in xrange(1000)]
+random.shuffle(unsorted)
+
+sorts = {'--native': sorted,
+         '--merge': merge_sort,
+         '--quick': quick_sort,
+         '--quick2': quick_sort2,
+         '--heap': heap_sort}
+
+@timing
+def bench_sort(tab, func):
+    return func(tab)
+
+for opt, sort in sorts.iteritems():
+    if opt in sys.argv or len(sys.argv) == 1:
+        bench_sort(unsorted, sort)

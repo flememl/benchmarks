@@ -1,6 +1,3 @@
-#!/usr/bin/python
-from native_sort import unsorted
-
 def quick_sort(tab):
     if len(tab) <= 1:
         return tab
@@ -13,5 +10,3 @@ def quick_sort(tab):
         else:
             tab2.append(t)
     return quick_sort(tab1) + [p] + quick_sort(tab2)
-
-quick_sort(unsorted)

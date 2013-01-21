@@ -3,17 +3,32 @@ benchmarks
 
 python/go benchmarks
 
+usage
+-----
+
+`./bench_sorts`
+
+common options:
+* no parameter: run all the sorting algorithms
+* `--native`: run the default sort
+* `--merge`: run mergesort
+* `--quick`: run quicksort
+* `--quick2`: run quicksort with in-place replacement
+
+python:
+* `--heap`: run heapsort
+
+go:
+* `--async`: run the algorithms asynchronously
+* `--sync`: run the algorithms synchronously (default behaviour)
+
 python
 ------
-
-sorting algorithms: heap sort, merge sort, quick sort & quick sort with in-place replacement
 
 profiling: run `python -m cProfile xxx.py` (more info can be found on http://docs.python.org/2/library/profile.html)
 
 go
 --
-
-sorting algorithms: merge sort, quick sort & quick sort with in-place replacement, both synchronous and asynchronous (mostly to play with goroutines and channels)
 
 Do not forget to set $GOPATH and to install the intslice package with `go install intslice`.
 
