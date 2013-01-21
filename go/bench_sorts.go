@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"flag"
 	"intslice"
 	"sorting"
@@ -25,9 +24,9 @@ func main() {
 	for b, f := range sorts {
 		if run_all || *b {
 			unsorted := intslice.Perm(1000)
-			fmt.Println(f(unsorted, *async))
+			f(unsorted, *async)
 			if (*async == true && *sync == true) {
-				fmt.Println(f(unsorted, false))
+				f(unsorted, false)
 			}
 		}
 	}
