@@ -25,7 +25,7 @@ go:
 python
 ------
 
-profiling: run `python -m cProfile xxx.py` (more info can be found on http://docs.python.org/2/library/profile.html)
+profiling: run `python -m cProfile bench_sorts` (more info can be found on http://docs.python.org/2/library/profile.html)
 
 go
 --
@@ -33,7 +33,8 @@ go
 Do not forget to set $GOPATH and to install the packages :
 `go install intslice`
 `go install sorting`
+`go install decorator`
 
 profiling: not tested yet (more info can be found on http://blog.golang.org/2011/06/profiling-go-programs.html)
 
-you can still run `go build xxx.go` then `time ./xxx`
+you can still run `go build bench_sorts.go` then `time ./bench_sorts`
