@@ -6,7 +6,7 @@ python/go benchmarks
 usage
 -----
 
-`./bench_sorts`
+`./bench_sorts [opts]`
 
 common options:
 * no parameter: run all the sorting algorithms
@@ -30,7 +30,9 @@ profiling: run `python -m cProfile xxx.py` (more info can be found on http://doc
 go
 --
 
-Do not forget to set $GOPATH and to install the intslice package with `go install intslice`.
+Do not forget to set $GOPATH and to install the packages :
+`go install intslice`
+`go install sorting`
 
 profiling: not tested yet (more info can be found on http://blog.golang.org/2011/06/profiling-go-programs.html)
 
