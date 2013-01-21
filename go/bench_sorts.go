@@ -21,14 +21,14 @@ func main() {
 		quick: sorting.QuickSort,
 		quick2: sorting.QuickSort2,
 	}
+	run_all := !(*native || *merge || *quick || *quick2)
 	for b, f := range sorts {
-		if *b && *async == true {
+		if run_all || *b {
 			unsorted := intslice.Perm(1000)
-			fmt.Println(f(unsorted, true))
-		}
-		if *b && (*sync == true || *async == false) {
-			unsorted := intslice.Perm(1000)
-			fmt.Println(f(unsorted, false))
+			fmt.Println(f(unsorted, *async))
+			if (*async == true && *sync == true) {
+				fmt.Println(f(unsorted, false))
+			}
 		}
 	}
 }
