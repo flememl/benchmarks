@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"flag"
-	"sort"
-	"math/rand"
 	"intslice"
 	"sorting"
 )
@@ -18,15 +16,10 @@ func main() {
 	quick2 := flag.Bool("quick2", false, "launch the quick sort in-place")
 	flag.Parse()
 	sorts := map[*bool] func (intslice.IntSlice, bool) intslice.IntSlice {
+	        native: sorting.NativeSort,
 		merge: sorting.MergeSort,
 		quick: sorting.QuickSort,
 		quick2: sorting.QuickSort2,
-	}
-	if *native == true {
-		var unsorted sort.IntSlice
-		unsorted = rand.Perm(1000)
-		sort.Sort(unsorted)
-		fmt.Println(unsorted)
 	}
 	for b, f := range sorts {
 		if *b && *async == true {
