@@ -9,7 +9,7 @@ func partition(tab intslice.IntSlice) (i int) {
 	l := len(tab)
 	mid, last := l/2, l-1
 	tab.Swap(mid, last)
-	for i, j := 0, 0; j < last; j++ {
+	for j := 0; j < last; j++ {
 		if tab[j] <= tab[last] {
 			tab.Swap(i, j)
 			i++
